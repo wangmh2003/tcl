@@ -1,0 +1,7 @@
+<template>
+  <div>
+    <div>123</div>
+    <slot></slot>
+    <div>123</div>
+  </div>
+</template>

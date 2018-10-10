@@ -1,0 +1,37 @@
+<config injector="$compile, $timeout"
+></config>
+<template>
+  <div>
+    <div class="wrap">
+      <span>{{msg}}</span>
+    </div>
+  </div>
+</template>
+<script type="text/javascript">
+  export default function(compile, timeout){
+    return {
+      scope : {
+        val : "="
+      },
+      link(scope, element, attr){
+        scope.msg = `directive:自定义指令使用例子`;
+        if(scope.val == 1){
+          var elem = document.createElement("dyn-dir");
+          element[0].appendChild(elem);
+          timeout(() => {
+            compile(elem)(scope);
+          });
+        }
+      }
+    }
+  }
+</script>
+<style type="less" scoped="true">
+  .wrap{
+    margin : 5px;
+    padding : 10px;
+    color : #333;
+    background-color : #eee;
+    border : 1px solid #ddd;
+  }
+</style>

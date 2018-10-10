@@ -1,0 +1,31 @@
+<config injector="$timeout"
+></config>
+<template>
+  <div class="col-end">
+  </div>
+</template>
+<script type="text/javascript">
+  export default function(timeout){
+    return {
+      scope : {
+        parentList : "="
+      },
+      link(scope, element){
+        element[0].style.height = "auto";
+        timeout(() => {
+          let cparent = element[0].parentElement,
+            pparent = cparent.parentElement,
+            diff =  pparent.clientHeight - cparent.clientHeight - 1;
+          if(diff > 0){
+            console.log(element[0].clientHeight, diff);
+            element[0].style.height = element[0].clientHeight + diff + "px";
+            console.log(element[0].style.height);
+          }
+        })
+      }
+    }
+  }
+</script>
+<style type="less" scoped="true">
+
+</style>

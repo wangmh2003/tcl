@@ -1,0 +1,109 @@
+<!--添加保养计划议模态框-->
+<div class="modal bootstrap-dialog type-primary fade size-normal in" style="display : block;">
+  <div class="modal-dialog" style="width: 60%">
+    <div class="modal-content">
+      <div class="modal-header bg-f2">
+        <a role="button" ng-click="closeDialog();" class="close">×</a>
+        <h4 class="modal-title info-box-number">保养计划</h4>
+      </div>
+      <div class="modal-body clearfix row ">
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">保养计划编号：</span>
+          </label>
+          <div class="col-sm-7">
+            <input ng-model="maintainplanAddData.maintenancePlanNumber" ng-disabled="showView" class="form-control input-sm ng-pristine ng-valid ng-not-empty ng-touched" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">保养项目名称：</span>
+          </label>
+          <div class="col-sm-7">
+            <input ng-model="maintainplanAddData.projectName" ng-disabled="showView" class="form-control input-sm ng-pristine ng-valid ng-not-empty ng-touched" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">保养设备：</span>
+          </label>
+          <div class="col-sm-7">
+            <select ng-model="maintainplanAddData.equipmentName" ng-disabled="showView" class="form-control input-sm ng-pristine ng-valid ng-not-empty ng-touched"></select>
+          </div>
+        </div>
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">周期单位：</span>
+          </label>
+          <div class="col-sm-7">
+            <select ng-model="maintainplanAddData.periodicUnitName" ng-disabled="showView" class="form-control input-sm ng-pristine ng-valid ng-not-empty ng-touched">
+              <option>请选择</option>
+              <option>一次</option>
+              <option>日</option>
+              <option>周</option>
+              <option>月</option>
+              <option>年</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">周期间隔：</span>
+          </label>
+          <div class="col-sm-7">
+            <input ng-model="maintainplanAddData.periodicInterval" ng-disabled="showView" class="form-control input-sm ng-pristine ng-valid ng-not-empty ng-touched" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">开始日期：</span>
+          </label>
+          <div class="col-sm-7">
+            <input type="text" ng-disabled="showView" class="form-control input-sm ng-valid ng-isolate-scope ng-touched ng-not-empty ng-dirty ng-valid-parse" readonly="readonly" autocomplete="off" drops="down" ng-model="maintainplanAddData.startDate" timepicker="true" date-time-picker="" style="">
+          </div>
+        </div>
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">开始时间：</span>
+          </label>
+          <div class="col-sm-7">
+            <input type="text" ng-disabled="showView" class="form-control input-sm ng-valid " readonly="readonly" autocomplete="off" drops="down" ng-model="maintainplanAddData.startTime" timepicker="true" date-time-picker="" style="">
+          </div>
+        </div>
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">保养类型：</span>
+          </label>
+          <div class="col-sm-7">
+            <select ng-model="maintainplanAddData.maintenanceName" ng-disabled="showView" class="form-control input-sm ng-pristine ng-valid ng-not-empty ng-touched">
+              <option>请选择</option>
+              <option>保养大修</option>
+              <option>日常保养</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-sm-4 ">
+          <label class="col-sm-5 dialog-control-label no-padding-right dialog-control-h">
+            <span class="text-danger ng-binding">*</span> <span class="ng-binding">是否启用：</span>
+          </label>
+          <div class="col-sm-7">
+            <input ng-model="maintainplanAddData.planStatus" ng-disabled="showView" type="checkbox" class="" placeholder="">
+          </div>
+        </div>
+        <div class="form-group col-sm-12">
+          <h4 class="pull-left" style="margin-left: 30px; font-weight: 700;">保养项次</h4>
+          <button class="btn btn-primary btn-sm pull-right" ng-disabled="showView" ng-click="addMaintainNumber();" style="margin-right: 30px;">新增项次</button>
+        </div>
+        <div class="box-body col-sm-12  table-responsive margin-bottom-20 bg-write ">
+          <div class="box-footer margin-bottom-10">
+            <table width="100%" class="table table-hover" id="addMaintainNumberTable" add-maintain-item-table></table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-disabled="showView" ng-click="saveMaintainPlan();">确认</button>
+        <button class="btn btn-default" ng-click="closeDialog();">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

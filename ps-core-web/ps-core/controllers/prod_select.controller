@@ -1,0 +1,23 @@
+<config injector="$scope"
+></config>
+<template>
+    <div class="wrap">
+    </div>
+</template>
+<script type="text/javascript">
+  export default function(scope,q,resourceUIService,viewFlexService,api){
+        scope.config = {
+            multiple: true,
+        };
+        var testcase = 0;
+    };
+</script>
+<style type="less" scoped="true">
+    .wrap{
+        margin : 5px;
+        padding : 10px;
+        color : #333;
+        background-color : #eee;
+        border : 1px solid #ddd;
+    }
+</style>

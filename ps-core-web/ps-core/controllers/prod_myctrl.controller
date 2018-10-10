@@ -1,0 +1,13 @@
+<config injector="$scope,$location,$q,$route"></config>
+<template>
+  <dat-table-dom ></dat-table-dom>
+</template>
+
+<script>
+  export default function(s){
+    s.m = 10;
+  }
+</script>
+<style scoped = "true">
+
+</style>

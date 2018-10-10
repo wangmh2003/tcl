@@ -1,0 +1,22 @@
+<config injector=""></config>
+<template>
+  <div>
+    <span>
+      {{b}}
+    </span>
+  </div>
+</template>
+<script>
+  export default function(){
+    return {
+      link(s, element, attr){
+        s.b = 20;
+      }
+    }
+  }
+</script>
+<style type="less" scoped="true">
+  span {
+    color : red;
+  }
+</style>

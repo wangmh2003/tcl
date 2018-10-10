@@ -1,0 +1,42 @@
+<config injector="$q,$compile"
+></config>
+<template>
+  <div class="item">
+  </div>
+</template>
+<script type="text/javascript">
+  function each(arr, callback){
+    arr = arr || [];
+    for(var i = 0;i<arr.length; i++ ){
+      callback(arr[i],i);
+    }
+  }
+  export default function(q,compile){
+    return {
+      scope : {
+        option : `=`
+      },
+      link(scope, element, attr){
+        let tar = element[0];
+        function $append(target, dom){
+          target.appendChild(dom);
+          compile(dom)(scope);
+        }
+        let iteminner = document.createElement(`div`);
+          el = document.createElement(`ps-${scope.option.type}`),
+          head = document.createElement(`div`);
+          colHead = document.createElement(`div`);
+        iteminner.setAttribute(`class`,`item-inner`);
+        head.setAttribute(`class`, `header`);
+        colHead.setAttribute(`class`, `col-head`);
+        el.setAttribute(`data-option`, `option`);
+        iteminner.appendChild(head);
+        iteminner.appendChild(el);
+        $append(tar, colHead);
+        $append(tar, iteminner);
+      }
+    }
+  }
+</script>
+<style type="less">
+</style>

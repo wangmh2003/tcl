@@ -1,0 +1,21 @@
+<config injector="$q,$compile"
+></config>
+<template>
+  <div>
+    <ps-tool ng-repeat="op in option.children" data-option="op"></ps-tool>
+  </div>
+</template>
+<script type="text/javascript">
+  export default function(q,compile){
+    return {
+      scope : {
+        option : `=`
+      },
+      link(scope, element, attr){
+        console.log(scope.option);
+      }
+    }
+  }
+</script>
+<style type="less">
+</style>
